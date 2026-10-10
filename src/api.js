@@ -1,19 +1,30 @@
-// obtener 12 pokemon desde la api
+const CLAVE_CACHE = "pokemons40";
+
+// obtener los pokemon desde la api
 export async function obtenerPokemons() {
 
+    // comprobamos si ya tenemos los pokemon
+    const datosGuardados = localStorage.getItem(CLAVE_CACHE);
+
+    // si existen, los convertimos de texto a js y los devolvemos
+    if (datosGuardados) {
+        return JSON.parse(datosGuardados);
+    }
+
+
+    // si no estan guardados, pedimos a la api
     const respuesta = await fetch(
-        "https://pokeapi.co/api/v2/pokemon?limit=12"
+        "https://pokeapi.co/api/v2/pokemon?limit=40"
     );
 
     if (!respuesta.ok) {
         throw new Error("No se pudieron cargar los Pokémon");
     }
 
-    // convertir los datos a json
     const datos = await respuesta.json();
 
 
-    // pedir la informacion de cada pokemon
+    // pedir los detalles de cada Pokémon
     const pokemons = await Promise.all(
 
         datos.results.map(async (pokemon) => {
@@ -26,8 +37,6 @@ export async function obtenerPokemons() {
 
             const detalle = await respuestaDetalle.json();
 
-
-            // devolver los datos que necesitamos
             return {
                 id: detalle.id,
                 nombre: detalle.name,
@@ -38,6 +47,13 @@ export async function obtenerPokemons() {
                 })
             };
         })
+    );
+
+
+    // guardar los pokemon en localStorage
+    localStorage.setItem(
+        CLAVE_CACHE,
+        JSON.stringify(pokemons)
     );
 
 

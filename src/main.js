@@ -59,16 +59,22 @@ async function iniciar() {
 // buscar pokemon mientras escribimos
 buscador.addEventListener("input", () => {
 
-    // obtener lo que escribe el usuario
+    // guardar lo que escribe el usuario
     const texto = buscador.value.toLowerCase();
 
-    // filtrar pokemons
+    // filtrar los pokemon por nombre
     const filtrados = listaPokemons.filter(pokemon => {
         return pokemon.nombre.includes(texto);
     });
 
-    // mostrar pokemons filtrados
-    renderPokemons(filtrados, contenedor);
+    // si no esta, mostramos un mensaje
+    if (filtrados.length === 0) {
+
+        contenedor.innerHTML = "<p>No se encontraron Pokémon 😢</p>";
+
+    } else {
+        renderPokemons(filtrados, contenedor);
+    }
 });
 
 // iniciar la app
