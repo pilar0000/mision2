@@ -1,13 +1,10 @@
-/* =========================
-   ESTILO GENERAL
-========================= */
-
+/* estilo de la pagina */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     text-align: center;
 
-    /* Fondo tropical */
+    /* fondo */
     background: linear-gradient(
         135deg,
         #d9f99d,
@@ -20,9 +17,7 @@ body {
 }
 
 
-/* =========================
-   CONTENEDOR PRINCIPAL
-========================= */
+/*contenedor principal*/
 
 main {
     max-width: 1000px;
@@ -31,9 +26,7 @@ main {
 }
 
 
-/* =========================
-   TÍTULO
-========================= */
+/*titulo*/
 
 h1 {
     font-size: 50px;
@@ -45,9 +38,7 @@ h1 {
 }
 
 
-/* =========================
-   BUSCADOR
-========================= */
+/*buscador*/
 
 #buscador {
     width: 300px;
@@ -78,9 +69,7 @@ h1 {
 }
 
 
-/* =========================
-   MENSAJE DE ESTADO
-========================= */
+/*mensaje de estado*/
 
 #estado {
     font-weight: bold;
@@ -91,9 +80,7 @@ h1 {
 }
 
 
-/* =========================
-   CONTENEDOR DE POKÉMON
-========================= */
+/*contenedor de pokemon*/
 
 #pokemon-container {
     display: grid;
@@ -109,9 +96,7 @@ h1 {
 }
 
 
-/* =========================
-   TARJETAS
-========================= */
+/*tarjetas*/
 
 .pokemon-card {
     background-color: #fffbea;
@@ -128,7 +113,7 @@ h1 {
 }
 
 
-/* Efecto tropical al pasar el ratón */
+/*efecto al pasar el raton*/
 .pokemon-card:hover {
     transform: translateY(-8px) scale(1.03);
 
@@ -138,9 +123,7 @@ h1 {
 }
 
 
-/* =========================
-   IMAGEN DEL POKÉMON
-========================= */
+/*imagen del pokemon*/
 
 .pokemon-card img {
     width: 130px;
@@ -154,9 +137,7 @@ h1 {
 }
 
 
-/* =========================
-   NOMBRE DEL POKÉMON
-========================= */
+/*nombre del pokemon*/
 
 .pokemon-card h2 {
     text-transform: capitalize;
@@ -167,9 +148,7 @@ h1 {
 }
 
 
-/* =========================
-   TIPO DEL POKÉMON
-========================= */
+/*tipo del pokemon*/
 
 .pokemon-card p {
     color: #166534;
